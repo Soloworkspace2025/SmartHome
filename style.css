@@ -1,0 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #08012e 0%, #000000 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: white; /* Белый текст по умолчанию */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Исправил 1 на 0 */
+}
+
+/* Меню как на картинке - более светлое */
+.menu {
+    display: flex;
+    background-color: #1a1a2e; /* Темно-синий вместо яркого */
+    border-radius: 15px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid #3498db; /* Синяя обводка */
+}
+
+.menu-item {
+    padding: 15px 25px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.menu-item:hover {
+    background-color: #3498db; /* Синий при наведении */
+}
+
+.menu-item.active {
+    background-color: #3498db; /* Синий активный */
+    color: white;
+}
+
+/* Карточки как на картинке - темные с белым текстом */
+.card {
+    background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #3498db; /* Синяя рамка */
+    color: white; /* Белый текст */
+    font-size: 16px; /* Нормальный размер */
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Заголовки карточек */
+.card h3 {
+    color: #3498db; /* Синие заголовки */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Температура - белая или светло-голубая */
+.temp-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ffffff; /* Белый */
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* Свечение */
+}
+
+/* Элементы освещения */
+.light-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
+
+.light-item span {
+    color: white;
+    font-size: 16px;
+}
+
+/* Кнопки света - переделал полностью */
+.light-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
+    min-width: 80px;
+}
+
+.light-btn.on {
+    background: linear-gradient(135deg, #2ecc71, #27ae60); /* Зеленый градиент */
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+
+.light-btn.off {
+    background: linear-gradient(135deg, #e74c3c, #c0392b); /* Красный градиент */
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Стили для системы безопасности */
+.security-status {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.security-normal {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    border: 1px solid #2ecc71;
+}
+
+.security-alarm {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Дополнительные стили как на картинках */
+.climate-control {
+    text-align: center;
+}
+
+.humidity {
+    color: #3498db;
+    font-size: 1.2em;
+}
+
+.quick-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.quick-stats .card {
+    text-align: center;
+}
