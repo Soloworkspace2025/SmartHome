@@ -98,6 +98,42 @@ function simulateSecurity() {
     }
 }
 
+// Функция для обновления времени
+function updateClock() {
+    const now = new Date();
+    
+    // Форматируем время
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    // Форматируем дату
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    };
+    const dateString = now.toLocaleDateString('ru-RU', options);
+    
+    // Обновляем элементы
+    document.getElementById('digital-clock').textContent = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('current-date').textContent = dateString;
+}
+
+// Обновляем время в меню
+function updateMenuTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('ru-RU', { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+    });
+    const timeElements = document.querySelectorAll('.menu-info .value');
+    if (timeElements[2]) { // Третий элемент с классом value - это "Обновлено"
+        timeElements[2].textContent = timeString;
+    }
+}
+
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
     // Устанавливаем начальную температуру
@@ -111,4 +147,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Безопасность
     setInterval(simulateSecurity, 10000);
+
+    // Часы - запускаем сразу и потом каждую секунду
+    updateClock();
+    updateMenuTime();
+    setInterval(updateClock, 1000);
+    setInterval(updateMenuTime, 60000);
 });
