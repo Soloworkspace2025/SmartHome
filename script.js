@@ -1,12 +1,12 @@
 // Функция для обновления температуры
-function updateTemperature() {
+/*function updateTemperature() {
     console.log("Обновляем температуру...");
     const tempElement = document.getElementById('temperature');
     // Генерируем случайную температуру от 20.0 до 24.0
     const randomTemp = (20 + Math.random() * 4).toFixed(1);
     tempElement.textContent = randomTemp + '°C';
     console.log("Температура обновлена: " + randomTemp);
-}
+}*/
 
 // Функция для управления светом
 function setupLightButtons() {
