@@ -1,26 +1,65 @@
-// Функция для обновления температуры
-/*function updateTemperature() {
-    console.log("Обновляем температуру...");
-    const tempElement = document.getElementById('temperature');
-    // Генерируем случайную температуру от 20.0 до 24.0
-    const randomTemp = (20 + Math.random() * 4).toFixed(1);
-    tempElement.textContent = randomTemp + '°C';
-    console.log("Температура обновлена: " + randomTemp);
-}*/
+// Глобальные переменные
+let currentTemp = 24.7; // начальная температура
+let targetTemp = 24.7;
+let tempInterval = null;
 
-// Функция для управления светом
+// Обновление отображения текущей температуры
+function displayCurrentTemp() {
+    document.getElementById('temperature').textContent = currentTemp.toFixed(1) + '°C';
+}
+
+// Постепенное изменение температуры к цели
+function startTemperatureAdjustment() {
+    // Останавливаем предыдущий интервал, если есть
+    if (tempInterval) clearInterval(tempInterval);
+
+    // Если уже достигли цели — ничего не делаем
+    if (Math.abs(currentTemp - targetTemp) < 0.05) {
+        currentTemp = targetTemp;
+        displayCurrentTemp();
+        return;
+    }
+
+    // Запускаем постепенное изменение
+    tempInterval = setInterval(() => {
+        const diff = targetTemp - currentTemp;
+        if (Math.abs(diff) < 0.05) {
+            // Достигли цели
+            currentTemp = targetTemp;
+            displayCurrentTemp();
+            clearInterval(tempInterval);
+            tempInterval = null;
+        } else {
+            // Меняем на 0.1°C за шаг (можно регулировать скорость)
+            currentTemp += diff > 0 ? 0.1 : -0.1;
+            displayCurrentTemp();
+        }
+    }, 500); // каждые 500 мс
+}
+
+// Настройка климат-контроля
+function setupClimateControl() {
+    const slider = document.getElementById('target-temp');
+    const valueDisplay = document.getElementById('target-temp-value');
+    const button = document.getElementById('set-temp-btn');
+
+    // Синхронизируем ползок и отображение
+    slider.addEventListener('input', () => {
+        valueDisplay.textContent = slider.value;
+    });
+
+    // Установка целевой температуры
+    button.addEventListener('click', () => {
+        targetTemp = parseFloat(slider.value);
+        console.log("Целевая температура установлена:", targetTemp);
+        startTemperatureAdjustment();
+    });
+}
+
+// Функция для управления светом (без изменений)
 function setupLightButtons() {
-    console.log("Настраиваем кнопки света...");
-    
-    // Находим все кнопки с классом 'light-btn'
     const lightButtons = document.querySelectorAll('.light-btn');
-    console.log("Найдено кнопок: " + lightButtons.length);
-    
-    // Для каждой кнопки добавляем обработчик клика
-    lightButtons.forEach((button, index) => {
-        console.log("Настраиваем кнопку " + index);
-        
-        // Устанавливаем начальное состояние на основе текста кнопки
+    lightButtons.forEach(button => {
         if (button.textContent === 'ВКЛ') {
             button.classList.add('on');
             button.classList.remove('off');
@@ -28,43 +67,30 @@ function setupLightButtons() {
             button.classList.add('off');
             button.classList.remove('on');
         }
-        
-        // Обработчик клика
+
         button.addEventListener('click', function() {
-            console.log("Кнопка нажата! Текст: " + this.textContent);
-            
-            // Переключаем состояние
             if (this.classList.contains('on')) {
-                // Если был ВКЛ - меняем на ВЫКЛ
                 this.classList.remove('on');
                 this.classList.add('off');
                 this.textContent = 'ВЫКЛ';
-                console.log("Свет выключен");
             } else {
-                // Если был ВЫКЛ - меняем на ВКЛ
                 this.classList.remove('off');
                 this.classList.add('on');
                 this.textContent = 'ВКЛ';
-                console.log("Свет включен");
             }
         });
     });
 }
 
-// Функция для симуляции системы безопасности
+// Симуляция безопасности (без изменений)
 function simulateSecurity() {
-    console.log("Проверка безопасности...");
     const statusElement = document.getElementById('security-status');
-    
-    // С вероятностью 90% - всё нормально, 10% - тревога
     if (Math.random() > 0.1) {
         statusElement.textContent = 'Все датчики в норме';
         statusElement.className = 'security-normal';
     } else {
         statusElement.textContent = 'ТРЕВОГА! Обнаружено движение!';
         statusElement.className = 'security-alarm';
-        
-        // Через 3 секунды возвращаем нормальный статус
         setTimeout(() => {
             statusElement.textContent = 'Все датчики в норме';
             statusElement.className = 'security-normal';
@@ -72,19 +98,17 @@ function simulateSecurity() {
     }
 }
 
-// Запускаем всё когда страница загрузится
+// Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Страница загружена! Запускаем скрипты...");
-    
-    // Обновляем температуру сразу и каждые 5 секунд
-    updateTemperature();
-    setInterval(updateTemperature, 5000);
-    
-    // Настраиваем кнопки света
+    // Устанавливаем начальную температуру
+    displayCurrentTemp();
+
+    // Настраиваем климат
+    setupClimateControl();
+
+    // Свет
     setupLightButtons();
-    
-    // Симулируем систему безопасности каждые 10 секунд
+
+    // Безопасность
     setInterval(simulateSecurity, 10000);
-    
-    console.log("Все функции запущены!");
 });

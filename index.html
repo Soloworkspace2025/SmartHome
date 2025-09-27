@@ -26,6 +26,16 @@
                 <h3>Температура в доме</h3>
                 <div class="temp-value" id="temperature">24.7°C</div>
             </div>
+            
+            <!-- Блок управления климатом -->
+            <div class="card climate-control">
+                <h3>Климат-контроль</h3>
+                <div>
+                    <label for="target-temp">Целевая температура: <span id="target-temp-value">24.7</span>°C</label><br>
+                    <input type="range" id="target-temp" min="18" max="30" step="0.1" value="24.7">
+                </div>
+                <button id="set-temp-btn">Установить</button>
+            </div>
 
             <!-- Блок с освещением -->
             <div class="card">
