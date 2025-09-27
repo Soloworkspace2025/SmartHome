@@ -11,8 +11,8 @@
 
 <body>
     <div class="container">
-        <!-- Верхнее меню -->
-        <nav class="menu">
+        <!-- Боковое меню (слева) -->
+        <nav class="sidebar-menu">
             <div class="menu-item active">Панель управления</div>
             <div class="menu-item">Освещение</div>
             <div class="menu-item">Климат</div>
@@ -62,6 +62,44 @@
             <div class="card">
                 <h3>Система безопасности</h3>
                 <div id="security-status">Все датчики в норме</div>
+            </div>
+
+            <!-- Блок плана помещений (чертёж) -->
+            <div class="card">
+                <h3>План помещений</h3>
+                <div class="floor-plan">
+                    <svg width="100%" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Фон прозрачный -->
+                        <rect width="600" height="300" fill="none" />
+
+                        <!-- Гостиная -->
+                        <path d="M50,50 H250 V150 H50 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
+                        <text x="150" y="100" fill="white" font-size="14" text-anchor="middle">Гостиная</text>
+
+                        <!-- Спальня 1 -->
+                        <path d="M50,170 H150 V250 H50 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
+                        <text x="100" y="210" fill="white" font-size="14" text-anchor="middle">Спальня 1</text>
+
+                        <!-- Спальня 2 -->
+                        <path d="M170,170 H270 V250 H170 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
+                        <text x="220" y="210" fill="white" font-size="14" text-anchor="middle">Спальня 2</text>
+
+                        <!-- Ванная -->
+                        <path d="M290,50 H390 V130 H290 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
+                        <text x="340" y="90" fill="white" font-size="14" text-anchor="middle">Ванная</text>
+
+                        <!-- Коридор -->
+                        <path d="M290,170 H550 V250 H290 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
+                        <text x="420" y="210" fill="white" font-size="14" text-anchor="middle">Коридор</text>
+
+                        <!-- Двери -->
+                        <line x1="250" y1="100" x2="280" y2="100" stroke="#ffffff" stroke-width="1.5" />
+                        <line x1="150" y1="210" x2="170" y2="210" stroke="#ffffff" stroke-width="1.5" />
+                        <line x1="270" y1="210" x2="290" y2="210" stroke="#ffffff" stroke-width="1.5" />
+                        <line x1="340" y1="130" x2="340" y2="150" stroke="#ffffff" stroke-width="1.5" />
+                        <line x1="550" y1="210" x2="570" y2="210" stroke="#ffffff" stroke-width="1.5" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
