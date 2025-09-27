@@ -165,27 +165,64 @@ body {
 .quick-stats .card {
     text-align: center;
 }
+.climate-control {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+}
+
+.climate-control h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
 
 .climate-control label {
     display: block;
     margin-bottom: 10px;
-    color: white;
     font-size: 16px;
 }
 
 .climate-control input[type="range"] {
     width: 100%;
     margin: 10px 0;
+    height:10px;
+    -webkit-appearance: none;
+    background: #444;
+    border-radius: 3px;
+    outline: none;
+}
+
+.climate-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 25px;
+    background: #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.climate-control .range-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #ccc;
 }
 
 .climate-control button {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: rgb(103, 10, 190);
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
+    width: 100%;
+    margin-top: 12px;
     transition: all 0.3s;
 }
 
@@ -193,7 +230,6 @@ body {
     background: linear-gradient(135deg, #2980b9, #3498db);
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
 }
-
 /* Стиль для чертежа */
 .floor-plan {
     margin-top: 15px;

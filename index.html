@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <!-- Боковое меню (слева) -->
+        <!-- Боковое меню -->
         <nav class="sidebar-menu">
             <div class="menu-item active">Панель управления</div>
             <div class="menu-item">Освещение</div>
@@ -24,7 +24,7 @@
             <!-- Блок с температурой -->
             <div class="card">
                 <h3>Температура в доме</h3>
-                <div class="temp-value" id="temperature">24.7°C</div>
+                <div class="temp-value" id="temperature"></div>
             </div>
             
             <!-- Блок управления климатом -->
@@ -33,6 +33,16 @@
                 <div>
                     <label for="target-temp">Целевая температура: <span id="target-temp-value">24.7</span>°C</label><br>
                     <input type="range" id="target-temp" min="18" max="30" step="0.1" value="24.7">
+                    <!-- Подписи под ползунком -->
+                    <div class="range-labels">
+                        <span>18</span>
+                        <span>20</span>
+                        <span>22</span>
+                        <span>24</span>
+                        <span>26</span>
+                        <span>28</span>
+                        <span>30</span>
+                    </div>
                 </div>
                 <button id="set-temp-btn">Установить</button>
             </div>
