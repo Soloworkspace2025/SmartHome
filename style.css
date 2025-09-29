@@ -166,7 +166,7 @@ body {
     text-align: center;
 }
 .climate-control {
-    background: #2c3e50;
+    background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
     padding: 20px;
     border-radius: 12px;
     color: white;
@@ -196,7 +196,7 @@ body {
 
 .climate-control input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 10px;
+    width: 15px;
     height: 25px;
     background: #3498db;
     border-radius: 50%;
