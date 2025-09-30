@@ -56,7 +56,7 @@ function setupClimateControl() {
     });
 }
 
-// Функция для управления светом (без изменений)
+// Функция для управления светом
 function setupLightButtons() {
     const lightButtons = document.querySelectorAll('.light-btn');
     lightButtons.forEach(button => {
@@ -82,7 +82,7 @@ function setupLightButtons() {
     });
 }
 
-// Симуляция безопасности (без изменений)
+// Симуляция безопасности
 function simulateSecurity() {
     const statusElement = document.getElementById('security-status');
     if (Math.random() > 0.1) {
