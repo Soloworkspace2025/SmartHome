@@ -86,6 +86,10 @@
                         <span>Свет в ванной</span>
                         <button class="light-btn" id="bathroom-light">ВЫКЛ</button>
                     </div>
+                    <div class="light-item">
+                        <span>Свет в коридоре</span>
+                        <button class="light-btn" id="corridor-room-light">ВЫКЛ</button>
+                    </div>
                 </div>
 
                 <!-- Блок безопасности -->
@@ -115,24 +119,34 @@
                             <rect width="600" height="300" fill="none" />
 
                             <!-- Гостиная -->
-                            <path d="M50,50 H250 V150 H50 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
-                            <text x="150" y="100" fill="white" font-size="14" text-anchor="middle">Гостиная</text>
+                            <g id="living-room">
+                                <path d="M50,50 H250 V150 H50 Z" stroke="#ffffff" stroke-width="1.5" fill="none" class="room-shape"/>
+                                <text x="150" y="100" fill="white" font-size="14" text-anchor="middle">Гостиная</text>
+                            </g>
 
                             <!-- Спальня 1 -->
-                            <path d="M50,170 H150 V250 H50 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
-                            <text x="100" y="210" fill="white" font-size="14" text-anchor="middle">Спальня 1</text>
+                            <g id="bedroom1">
+                                <path d="M50,170 H150 V250 H50 Z" stroke="#ffffff" stroke-width="1.5" fill="none" class="room-shape"/>
+                                <text x="100" y="210" fill="white" font-size="14" text-anchor="middle">Спальня 1</text>
+                            </g>
 
                             <!-- Спальня 2 -->
-                            <path d="M170,170 H270 V250 H170 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
-                            <text x="220" y="210" fill="white" font-size="14" text-anchor="middle">Спальня 2</text>
+                            <g id="bedroom2">
+                                <path d="M170,170 H270 V250 H170 Z" stroke="#ffffff" stroke-width="1.5" fill="none" class="room-shape"/>
+                                <text x="220" y="210" fill="white" font-size="14" text-anchor="middle">Спальня 2</text>
+                            </g>
 
                             <!-- Ванная -->
-                            <path d="M290,50 H390 V130 H290 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
-                            <text x="340" y="90" fill="white" font-size="14" text-anchor="middle">Ванная</text>
+                            <g id="bathroom">
+                                <path d="M290,50 H390 V130 H290 Z" stroke="#ffffff" stroke-width="1.5" fill="none" class="room-shape"/>
+                                <text x="340" y="90" fill="white" font-size="14" text-anchor="middle">Ванная</text>
+                            </g>
 
                             <!-- Коридор -->
-                            <path d="M290,170 H550 V250 H290 Z" stroke="#ffffff" stroke-width="1.5" fill="none" />
-                            <text x="420" y="210" fill="white" font-size="14" text-anchor="middle">Коридор</text>
+                            <g id="corridor">
+                                <path d="M290,170 H550 V250 H290 Z" stroke="#ffffff" stroke-width="1.5" fill="none" class="room-shape"/>
+                                <text x="420" y="210" fill="white" font-size="14" text-anchor="middle">Коридор</text>
+                            </g>
 
                             <!-- Двери -->
                             <line x1="250" y1="100" x2="280" y2="100" stroke="#ffffff" stroke-width="1.5" />

@@ -329,4 +329,15 @@ body {
     font-weight: bold;
 }
 
-/* Остальные стили остаются без изменений */
+/* Стили для подсветки комнат */
+.room-shape {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 0px rgba(255,255,255,0));
+}
+
+.room-light-on {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 0, 0.8)) 
+            drop-shadow(0 0 30px rgba(255, 255, 0, 0.4));
+    stroke: #ffeb3b !important;
+    stroke-width: 2.5 !important;
+}

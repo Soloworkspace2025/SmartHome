@@ -56,27 +56,58 @@ function setupClimateControl() {
     });
 }
 
-// Функция для управления светом
+// Функция для включения/выключения подсветки комнаты
+function toggleRoomLight(roomId, turnOn) {
+    const room = document.getElementById(roomId);
+    if (!room) return;
+    
+    const roomShape = room.querySelector('.room-shape');
+    
+    if (turnOn) {
+        roomShape.classList.add('room-light-on');
+    } else {
+        roomShape.classList.remove('room-light-on');
+    }
+}
+
+// Функция для управления светом с подсветкой комнат
 function setupLightButtons() {
     const lightButtons = document.querySelectorAll('.light-btn');
+    
+    // Соответствие кнопок и комнат
+    const roomMapping = {
+        'living-room-light': 'living-room',
+        'bedroom1-light': 'bedroom1',
+        'bedroom2-light': 'bedroom2',
+        'bathroom-light': 'bathroom',
+        'corridor-room-light': 'corridor'
+    };
+
     lightButtons.forEach(button => {
-        if (button.textContent === 'ВКЛ') {
-            button.classList.add('on');
-            button.classList.remove('off');
-        } else {
-            button.classList.add('off');
-            button.classList.remove('on');
-        }
+        // Инициализация состояния кнопок (все ВЫКЛ по умолчанию)
+        button.classList.add('off');
+        button.classList.remove('on');
+        button.textContent = 'ВЫКЛ';
 
         button.addEventListener('click', function() {
+            const roomId = roomMapping[this.id];
+            
             if (this.classList.contains('on')) {
+                // Выключаем свет
                 this.classList.remove('on');
                 this.classList.add('off');
                 this.textContent = 'ВЫКЛ';
+                if (roomId) {
+                    toggleRoomLight(roomId, false);
+                }
             } else {
+                // Включаем свет
                 this.classList.remove('off');
                 this.classList.add('on');
                 this.textContent = 'ВКЛ';
+                if (roomId) {
+                    toggleRoomLight(roomId, true);
+                }
             }
         });
     });
